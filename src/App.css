@@ -1,0 +1,144 @@
+/* =========================================================
+   AACHEN OPEN: SEA GAMES 2026 — global styles
+   Every colour and font is a variable here. Change it once,
+   it updates everywhere. Never use literal colours elsewhere.
+   ========================================================= */
+:root {
+  color-scheme: dark;
+
+  /* ---------- Colour palette ---------- */
+  --burgundy:      #70191D;
+  --chinese-red:   #970A12;
+  --satsuma:       #D1601F;
+  --lunar-yellow:  #FECD6D;
+  --cobalt:        #5686BB;
+
+  /* Neutrals (not in the palette, used for readable text and shadows) */
+  --cream:         #F5F0E5;
+  --grey:          #C9B9A6;
+  --black:         #000000;
+
+  /* ---------- Colour roles ----------
+     Components only use these. To re-theme, point a role at a
+     different palette colour above. */
+  --color-accent:          var(--lunar-yellow);  /* buttons, active link, highlights */
+  --color-accent-dark:     var(--satsuma);       /* border of the open FAQ item */
+  --color-text:            var(--cream);         /* headings and main text */
+  --color-text-muted:      var(--grey);          /* secondary text */
+  --color-text-on-accent:  var(--burgundy);      /* text on accent buttons */
+  --color-nav-bg:          var(--burgundy);      /* navigation bar */
+  --color-card-bg:         var(--burgundy);      /* cards, dark button */
+  --color-border:          var(--chinese-red);   /* borders */
+
+  /* ---------- Effects ---------- */
+  --shadow-text:        color-mix(in srgb, var(--black) 50%, transparent);
+  --shadow-card:        color-mix(in srgb, var(--black) 35%, transparent);
+  --placeholder-bg:     color-mix(in srgb, var(--color-card-bg) 60%, transparent);
+  --placeholder-border: color-mix(in srgb, var(--color-accent) 50%, transparent);
+
+  /* ---------- Background ---------- */
+  /* Put the long background image at public/images/background.png */
+  /* TEST: bg_test.png rotated 90°. Switch back to background.png once it exists. */
+  --bg-image:      url("/images/bg_test-rotated.png");
+  /* --bg-image:   url("/images/background.png"); */
+  --bg-base:       var(--bg-grad-1);
+  /* Dark tint laid over the background image; raise the % to darken more */
+  --bg-overlay:    color-mix(in srgb, var(--black) 45%, transparent);
+  /* Fallback gradient shown until background.png is added:
+     mostly cobalt (darkened for text contrast) with red and orange glows */
+  --bg-grad-1:     color-mix(in srgb, var(--cobalt) 35%, var(--black));
+  --bg-grad-2:     color-mix(in srgb, var(--cobalt) 55%, var(--black));
+  --bg-grad-3:     color-mix(in srgb, var(--cobalt) 80%, var(--black));
+  --bg-glow-orange: color-mix(in srgb, var(--satsuma) 55%, transparent);
+  --bg-glow-red:    color-mix(in srgb, var(--chinese-red) 50%, transparent);
+
+  /* ---------- Fonts ---------- */
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-logo:    'Alfa Slab One', serif;
+  --font-country: 'Bellefair', serif;
+
+  /* ---------- Layout ---------- */
+  --content-width: 1064px;
+  --section-gap: 140px;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--bg-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* One continuous background stretched over the whole site */
+.app {
+  min-height: 100vh;
+  background-color: var(--bg-base);
+  background-image:
+    linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+    var(--bg-image),
+    radial-gradient(ellipse 45% 25% at 95% 4%, var(--bg-glow-orange), transparent 70%),
+    radial-gradient(ellipse 40% 20% at 0% 55%, var(--bg-glow-red), transparent 70%),
+    radial-gradient(ellipse 50% 20% at 100% 98%, var(--bg-glow-orange), transparent 70%),
+    linear-gradient(170deg, var(--bg-grad-1) 0%, var(--bg-grad-2) 45%, var(--bg-grad-3) 100%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+img { display: block; max-width: 100%; }
+main { overflow-x: clip; }   /* hero players may stick out to the right */
+a { color: inherit; text-decoration: none; }
+h1, h2 { font-family: var(--font-heading); font-weight: 400; margin: 0; }
+p { margin: 0; }
+
+/* ---------- Shared helpers ---------- */
+.container {
+  width: 100%;
+  max-width: calc(var(--content-width) + 48px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.section { margin-top: var(--section-gap); }
+.muted { color: var(--color-text-muted); font-size: 15px; line-height: 1.5; }
+.muted + .muted { margin-top: 22px; }
+
+.icon {
+  width: 20px; height: 20px; flex-shrink: 0;
+  fill: none; stroke: currentColor; stroke-width: 2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.icon-accent { color: var(--color-accent); }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 14px 24px;
+  font-size: 14px; font-weight: 600;
+  border-radius: 4px; border: 1px solid transparent;
+  transition: filter .15s, transform .15s;
+}
+.btn .icon { width: 16px; height: 16px; }
+.btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+.btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-text-on-accent); }
+.btn-dark    { background: var(--color-card-bg); border-color: var(--color-border); color: var(--color-text); }
+.btn-small   { padding: 10px 16px; font-size: 12px; }
+
+/* Text + photo rows (used by EventInfo, About, Faq) */
+.split { display: grid; grid-template-columns: 1fr 436px; gap: 40px; align-items: center; }
+.split-text .muted { margin-top: 0; }
+.title-lg { font-size: 55px; line-height: 1.06; margin-bottom: 4px; }
+.title    { font-size: 50px; line-height: 1.06; margin-bottom: 24px; }
+.photo { border-radius: 4px; overflow: hidden; }
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+
+@media (max-width: 860px) {
+  :root { --section-gap: 90px; }
+  .container { padding: 0 16px; }
+  .split { grid-template-columns: 1fr; gap: 24px; }
+  .title-lg, .title { font-size: 40px; }
+}

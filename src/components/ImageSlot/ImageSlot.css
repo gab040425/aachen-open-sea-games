@@ -1,0 +1,16 @@
+/* Zero specificity so components (e.g. absolute hero cut-outs) can override it */
+:where(.img-slot) { position: relative; }
+
+/* Missing-image placeholder (disappears once the file is in public/images) */
+.img-slot.missing {
+  min-height: 56px;
+  background: var(--placeholder-bg);
+  outline: 1px dashed var(--placeholder-border);
+  outline-offset: -1px;
+}
+.img-slot.missing::before {
+  content: "add public/images/" attr(data-file);
+  position: absolute; inset: 0; display: grid; place-items: center;
+  padding: 8px; text-align: center;
+  font: 11px var(--font-body); color: var(--color-accent); opacity: .8;
+}

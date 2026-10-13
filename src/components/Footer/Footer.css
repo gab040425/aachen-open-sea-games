@@ -1,0 +1,12 @@
+.footer {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+  margin-top: 14px;
+  padding: 28px 56px;
+  border-top: 1px solid var(--color-border);
+  font-size: 11px; color: var(--color-text-muted);
+}
+.footer a:hover { color: var(--color-accent); }
+
+@media (max-width: 860px) {
+  .footer { padding: 24px 16px; }
+}
