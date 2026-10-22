@@ -1,0 +1,57 @@
+.organizers-head { margin: 0 auto 48px; max-width: 640px; text-align: center; }
+.organizers-head .title { margin-bottom: 12px; }
+.organizers-head .muted { color: var(--color-text-soft); }
+
+.org-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+/* Card: each club has its own accent colour (--club, set from data/clubs.js) */
+.org-card {
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  padding: 28px 24px 24px;
+  text-align: center;
+  background: var(--color-panel-bg);
+  border: 1px solid var(--color-chip-border); border-radius: 8px;
+  overflow: hidden;
+  transition: transform .3s, border-color .3s, box-shadow .3s, opacity .6s, translate .6s;
+}
+.org-card::before {   /* thin glowing line along the top */
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--club), transparent);
+}
+.org-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--club) 55%, transparent);
+  box-shadow: 0 8px 40px color-mix(in srgb, var(--club) 15%, transparent);
+}
+
+.org-logo { width: 112px; height: 88px; display: grid; place-items: center; }
+.org-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.org-logo.missing::before { content: "club logo"; }
+
+.org-short { font-size: 28px; font-weight: 800; letter-spacing: .04em; color: var(--club); text-shadow: 0 0 20px color-mix(in srgb, var(--club) 30%, transparent); }
+.org-name { font-size: 15px; font-weight: 600; line-height: 1.4; min-height: 2.8em; color: var(--color-text); margin: 4px 0 8px; }  /* 2 lines, so cards line up */
+.org-role { font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--color-text-muted); }
+.org-description { font-size: 14px; line-height: 1.7; color: var(--color-text-soft); }
+
+.org-stats {
+  display: flex; justify-content: center; gap: 24px;
+  width: 100%; margin-top: auto; padding-top: 16px;
+  border-top: 1px solid var(--color-chip-border);
+}
+.org-stats > div { display: flex; flex-direction: column; gap: 2px; }
+.org-stat-value { font-size: 16px; font-weight: 700; color: var(--club); }
+.org-stat-label { font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--color-text-muted); }
+
+/* Reveal: cards rise in one after another when the section comes into view */
+.organizers .org-card { opacity: 0; translate: 0 40px; transition-delay: calc(.15s + var(--i) * .12s); }
+.organizers.is-visible .org-card { opacity: 1; translate: 0 0; }
+.organizers .org-card:hover { transition-delay: 0s; }
+@media (prefers-reduced-motion: reduce) {
+  .organizers .org-card { opacity: 1; translate: none; transition: none; }
+}
+
+@media (max-width: 640px) {
+  .org-grid { grid-template-columns: 1fr; }
+  .org-card.is-main { order: -1; }
+}

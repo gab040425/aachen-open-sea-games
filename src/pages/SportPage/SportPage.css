@@ -1,0 +1,36 @@
+.sport-page { padding-top: 64px; }
+
+.back-link { display: inline-block; margin-bottom: 40px; font-size: 13px; color: var(--color-text-muted); transition: color .15s; }
+.back-link:hover { color: var(--color-accent); }
+
+.sport-header .sport-category { display: block; margin-bottom: 12px; font-size: 12px; }
+.sport-header .title-lg { margin-bottom: 12px; }
+.sport-page-format { margin-bottom: 20px; font-size: 14px; color: var(--color-text-muted); }
+.sport-header .hero-actions { margin-top: 32px; }
+.sport-page-photo { aspect-ratio: 436 / 291; }
+
+.sport-facts {
+  list-style: none; margin: 56px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;
+}
+.sport-facts li {
+  padding: 20px 24px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border); border-radius: 4px;
+}
+
+.sport-info { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sport-info-card {
+  padding: 28px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border); border-radius: 4px;
+}
+.sport-info-card h2 { font-size: 28px; margin-bottom: 16px; }
+.sport-info-card ul { margin: 0; padding-left: 20px; color: var(--color-text-muted); font-size: 15px; line-height: 1.6; }
+
+.other-sports { display: flex; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 860px) {
+  .sport-page { padding-top: 32px; }
+  .sport-info { grid-template-columns: 1fr; }
+}

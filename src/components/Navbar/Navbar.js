@@ -1,36 +1,46 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import ImageSlot from '../ImageSlot/ImageSlot';
 import Icon from '../Icon/Icon';
 import './Navbar.css';
 
+// `to` can point at a page ("/sports/chess") or a section of the home page ("/#faq").
 const links = [
-  { label: 'Home', href: '#home' },
-  { label: 'Sports', href: '#sports' },
-  { label: 'Matches', href: '#' },       // TODO: link to a matches page
-  { label: 'Merchandise', href: '#' },   // TODO: link to a merch page
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Home', to: '/' },
+  { label: 'Sports', to: '/#sports' },
+  { label: 'Matches', to: '/', soon: true },       // TODO: link to a matches page
+  { label: 'Merchandise', to: '/merchandise' },
+  { label: 'FAQ', to: '/#faq' },
 ];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { pathname, hash } = useLocation();
   const close = () => setOpen(false);
+
+  const isActive = (to) => {
+    if (to === '/#sports') return pathname.startsWith('/sports') || (pathname === '/' && hash === '#sports');
+    if (to.startsWith('/#')) return pathname === '/' && hash === to.slice(1);
+    if (to !== '/') return pathname.startsWith(to);
+    return pathname === to && (!hash || hash === '#home');
+  };
 
   return (
     <header className={`nav ${open ? 'menu-open' : ''}`}>
-      <a className="nav-brand" href="#home">
-        <ImageSlot file="logo.png" alt="Aachen Open logo" className="nav-logo" />
-        <span className="nav-title">AACHEN OPEN: SEA GAMES 2026</span>
-      </a>
+      <Link className="nav-brand" to="/" onClick={close}>
+        <ImageSlot file="Logo.png" alt="Aachen Open logo" className="nav-logo" sizes="72px" eager />
+        <span className="nav-title">AACHEN OPEN: SEA GAMES</span>
+      </Link>
 
       <button className="nav-toggle" aria-label="Open menu" aria-expanded={open} onClick={() => setOpen(!open)}>
         <Icon name="menu" />
       </button>
 
       <nav className="nav-links">
-        {links.map((link, i) => (
-          <a key={link.label} href={link.href} className={i === 0 ? 'active' : ''} onClick={close}>
+        {links.map((link) => (
+          <Link key={link.label} to={link.to} className={!link.soon && isActive(link.to) ? 'active' : ''} onClick={close}>
             {link.label}
-          </a>
+          </Link>
         ))}
         <a href="#" className="btn btn-primary btn-small" onClick={close}>
           Register <Icon name="arrow" />

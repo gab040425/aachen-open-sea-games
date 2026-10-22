@@ -1,3 +1,4 @@
+import SectionLabel from '../SectionLabel/SectionLabel';
 import ImageSlot from '../ImageSlot/ImageSlot';
 import Icon from '../Icon/Icon';
 import './EventInfo.css';
@@ -12,16 +13,17 @@ const facts = [
 export default function EventInfo() {
   return (
     <section className="container section" id="event-info">
+      <SectionLabel>Event</SectionLabel>
       <div className="split">
         <div className="split-text">
           <h2 className="title-lg">EVENT INFORMATION</h2>
-          <p className="muted">Everything you need to know about the Aachen Open: SEA Games 2026</p>
+          <p className="muted">Everything you need to know about the Aachen Open: SEA Games</p>
         </div>
-        <ImageSlot file="photo-info.png" alt="Players at a previous event" className="photo photo-info" />
+        <ImageSlot file="EventInfo.jpg" alt="Players at a previous event" className="photo photo-info" sizes="(max-width: 860px) 100vw, 440px" />
       </div>
 
       <div className="info-row">
-        <ImageSlot file="venue.png" alt="Berufskolleg Nord in Herzogenrath" className="photo venue" />
+        <ImageSlot file="Berufskolleg_Herzogenrath_a.jpg" alt="Berufskolleg Nord in Herzogenrath" className="photo venue" sizes="(max-width: 860px) 100vw, 680px" />
 
         <ul className="facts">
           {facts.map((f) => (

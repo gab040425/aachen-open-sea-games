@@ -1,26 +1,31 @@
+import { lazy, Suspense } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import Countries from './components/Countries/Countries';
-import EventInfo from './components/EventInfo/EventInfo';
-import About from './components/About/About';
-import Sports from './components/Sports/Sports';
-import Faq from './components/Faq/Faq';
 import Footer from './components/Footer/Footer';
+import ScrollToHash from './components/ScrollToHash/ScrollToHash';
+import DitherWave from './components/DitherWave/DitherWave';
+import HomePage from './pages/HomePage';
+// Sub-pages are only downloaded when someone opens them
+const SportPage = lazy(() => import('./pages/SportPage/SportPage'));
+const MerchPage = lazy(() => import('./pages/MerchPage/MerchPage'));
 
-// The background image lives on .app (see App.css) so one long image
-// stretches continuously behind every section.
+// Background: blue gradient on .app (App.css) with the dither wave canvas on top.
 export default function App() {
   return (
     <div className="app">
+      <ScrollToHash />
+      <DitherWave />
       <Navbar />
       <main>
-        <Hero />
-        <Countries />
-        <EventInfo />
-        <About />
-        <Sports />
-        <Faq />
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/sports/:slug" element={<SportPage />} />
+            <Route path="/merchandise/:slug?" element={<MerchPage />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </div>

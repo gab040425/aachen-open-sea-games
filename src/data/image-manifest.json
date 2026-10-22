@@ -1,0 +1,159 @@
+{
+  "AboutEvent.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Berufskolleg_Herzogenrath_a.jpg": {
+    "width": 1000,
+    "height": 465,
+    "widths": [
+      400,
+      800,
+      1000
+    ]
+  },
+  "Dragon.jpg": {
+    "width": 706,
+    "height": 725,
+    "widths": [
+      400,
+      706
+    ]
+  },
+  "EventInfo.jpg": {
+    "width": 1600,
+    "height": 1069,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Faq.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "HeroBadminton-trim.png": {
+    "width": 198,
+    "height": 420,
+    "widths": [
+      198
+    ]
+  },
+  "HeroBadminton.png": {
+    "width": 408,
+    "height": 612,
+    "widths": [
+      400,
+      408
+    ]
+  },
+  "HeroBasketball-trim.png": {
+    "width": 122,
+    "height": 293,
+    "widths": [
+      122
+    ]
+  },
+  "HeroBasketball.png": {
+    "width": 612,
+    "height": 408,
+    "widths": [
+      400,
+      612
+    ]
+  },
+  "HeroFutsal-trim.png": {
+    "width": 201,
+    "height": 264,
+    "widths": [
+      201
+    ]
+  },
+  "HeroFutsal.png": {
+    "width": 408,
+    "height": 612,
+    "widths": [
+      400,
+      408
+    ]
+  },
+  "Komodo.jpg": {
+    "width": 708,
+    "height": 725,
+    "widths": [
+      400,
+      708
+    ]
+  },
+  "Logo.png": {
+    "width": 256,
+    "height": 256,
+    "widths": [
+      256
+    ]
+  },
+  "SportBadminton.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "SportBasketball.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "SportChess.jpg": {
+    "width": 1536,
+    "height": 1024,
+    "widths": [
+      400,
+      800,
+      1536
+    ]
+  },
+  "SportFutsal.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "SportVolleyball.jpg": {
+    "width": 1600,
+    "height": 1067,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Tiger.jpg": {
+    "width": 696,
+    "height": 725,
+    "widths": [
+      400,
+      696
+    ]
+  }
+}

@@ -1,5 +1,5 @@
 /* =========================================================
-   AACHEN OPEN: SEA GAMES 2026 — global styles
+   AACHEN OPEN: SEA GAMES — global styles
    Every colour and font is a variable here. Change it once,
    it updates everywhere. Never use literal colours elsewhere.
    ========================================================= */
@@ -12,6 +12,7 @@
   --satsuma:       #D1601F;
   --lunar-yellow:  #FECD6D;
   --cobalt:        #5686BB;
+
 
   /* Neutrals (not in the palette, used for readable text and shadows) */
   --cream:         #F5F0E5;
@@ -29,6 +30,21 @@
   --color-nav-bg:          var(--burgundy);      /* navigation bar */
   --color-card-bg:         var(--burgundy);      /* cards, dark button */
   --color-border:          var(--chinese-red);   /* borders */
+  --color-text-soft:       color-mix(in srgb, var(--cream) 85%, transparent);  /* body text on the background */
+  --color-chip-bg:         color-mix(in srgb, var(--black) 35%, transparent);  /* small info pills */
+  --color-chip-border:     color-mix(in srgb, var(--cream) 18%, transparent);
+  --color-panel-bg:        color-mix(in srgb, var(--bg-deep) 80%, transparent);  /* see-through dark cards */
+
+  /* One accent per club / nation (Organisers section) */
+  --club-vietnam:    color-mix(in srgb, var(--chinese-red) 55%, var(--cream));
+  --club-indonesia:  color-mix(in srgb, var(--cobalt) 80%, var(--cream));
+  --club-malaysia:   var(--satsuma);
+
+  /* Hero players: sticker outline, hard shadow, glowing stage behind them */
+  --sticker-outline:  var(--cream);
+  --sticker-shadow:   color-mix(in srgb, var(--black) 45%, transparent);
+  --stage-glow:       color-mix(in srgb, var(--satsuma) 45%, transparent);
+  --stage-glow-core:  color-mix(in srgb, var(--lunar-yellow) 30%, transparent);
 
   /* ---------- Effects ---------- */
   --shadow-text:        color-mix(in srgb, var(--black) 50%, transparent);
@@ -36,27 +52,27 @@
   --placeholder-bg:     color-mix(in srgb, var(--color-card-bg) 60%, transparent);
   --placeholder-border: color-mix(in srgb, var(--color-accent) 50%, transparent);
 
-  /* ---------- Background ---------- */
-  /* Put the long background image at public/images/background.png */
-  /* TEST: bg_test.png rotated 90°. Switch back to background.png once it exists. */
-  --bg-image:      url("/images/bg_test-rotated.png");
-  /* --bg-image:   url("/images/background.png"); */
-  --bg-base:       var(--bg-grad-1);
-  /* Dark tint laid over the background image; raise the % to darken more */
-  --bg-overlay:    color-mix(in srgb, var(--black) 45%, transparent);
-  /* Fallback gradient shown until background.png is added:
-     mostly cobalt (darkened for text contrast) with red and orange glows */
-  --bg-grad-1:     color-mix(in srgb, var(--cobalt) 35%, var(--black));
-  --bg-grad-2:     color-mix(in srgb, var(--cobalt) 55%, var(--black));
-  --bg-grad-3:     color-mix(in srgb, var(--cobalt) 80%, var(--black));
-  --bg-glow-orange: color-mix(in srgb, var(--satsuma) 55%, transparent);
-  --bg-glow-red:    color-mix(in srgb, var(--chinese-red) 50%, transparent);
+  /* ---------- Background ----------
+     Dark base, a soft blue band sweeping bottom-left -> top-right and a warm
+     sunrise glow in the bottom-left corner. The dither wave canvas
+     (src/lib/dither-wave.js) reads these variables; the same colours make
+     the CSS fallback below. */
+  --bg-deep:       #0A0D1A;   /* near-black navy base */
+  --bg-navy:       #101C55;
+  --bg-royal:      #1E3CA8;   /* the blue band */
+  --bg-bright:     #3D68DA;   /* brightest blue, next to the glow */
+  --bg-glow-outer: var(--satsuma);       /* warm glow, outer ring */
+  --bg-glow-core:  var(--lunar-yellow);  /* warm glow, centre */
+  --bg-base:       var(--bg-deep);
+  --bg-glyph:      color-mix(in srgb, var(--bg-bright) 45%, var(--cream));  /* 0/1 glyphs on the ripples */
+  --bg-mark:       color-mix(in srgb, var(--bg-bright) 55%, var(--cream));  /* + grid and contour lines */
 
   /* ---------- Fonts ---------- */
   --font-heading: 'Lora', Georgia, serif;
   --font-body:    'Inter', system-ui, sans-serif;
   --font-logo:    'Alfa Slab One', serif;
-  --font-country: 'Bellefair', serif;
+  --font-country: var(--font-heading);   /* country names on the cards */
+  --font-islands: 'Alfa Slab One', serif;   /* background island letters behind the hero players */
 
   /* ---------- Layout ---------- */
   --content-width: 1064px;
@@ -75,22 +91,24 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* One continuous background stretched over the whole site */
+/* Blue gradient over the whole page. The dither wave canvas draws on top
+   of it; this gradient is what shows if WebGL isn't available. */
 .app {
+  position: relative;
   min-height: 100vh;
   background-color: var(--bg-base);
   background-image:
-    linear-gradient(var(--bg-overlay), var(--bg-overlay)),
-    var(--bg-image),
-    radial-gradient(ellipse 45% 25% at 95% 4%, var(--bg-glow-orange), transparent 70%),
-    radial-gradient(ellipse 40% 20% at 0% 55%, var(--bg-glow-red), transparent 70%),
-    radial-gradient(ellipse 50% 20% at 100% 98%, var(--bg-glow-orange), transparent 70%),
-    linear-gradient(170deg, var(--bg-grad-1) 0%, var(--bg-grad-2) 45%, var(--bg-grad-3) 100%);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+    radial-gradient(circle at 0% 100%, var(--bg-glow-core) 0, var(--bg-glow-outer) 10%, transparent 32%),
+    linear-gradient(20deg, var(--bg-deep) 10%, var(--bg-royal) 42%, var(--bg-navy) 58%, var(--bg-deep) 85%);
+  background-attachment: fixed;
 }
+/* Page content sits above the fixed wave canvas */
+.app > main, .app > .footer { position: relative; z-index: 1; }
+/* Footer stays at the bottom on short pages */
+.app { display: flex; flex-direction: column; }
+.app > main { flex: 1; padding-bottom: 96px; }
 
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 main { overflow-x: clip; }   /* hero players may stick out to the right */
 a { color: inherit; text-decoration: none; }
 h1, h2 { font-family: var(--font-heading); font-weight: 400; margin: 0; }
@@ -127,6 +145,15 @@ p { margin: 0; }
 .btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-text-on-accent); }
 .btn-dark    { background: var(--color-card-bg); border-color: var(--color-border); color: var(--color-text); }
 .btn-small   { padding: 10px 16px; font-size: 12px; }
+
+/* Section divider: "// LABEL ————" (components/SectionLabel) */
+.section-label {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 32px;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--color-text-muted);
+}
+.section-label span { color: var(--color-accent); letter-spacing: 0; }
+.section-label::after { content: ""; flex: 1; height: 1px; background: var(--color-chip-border); }
 
 /* Text + photo rows (used by EventInfo, About, Faq) */
 .split { display: grid; grid-template-columns: 1fr 436px; gap: 40px; align-items: center; }

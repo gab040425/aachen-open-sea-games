@@ -1,0 +1,9 @@
+/* Fixed behind the page; ripples follow the cursor anywhere on the page */
+.dither-wave {
+  position: fixed; top: 0; left: 0; z-index: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100lvh;   /* largest phone viewport: no resize when the address bar hides */
+  display: block;
+  pointer-events: none;
+}

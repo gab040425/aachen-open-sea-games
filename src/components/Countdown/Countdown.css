@@ -1,0 +1,26 @@
+.countdown { display: flex; flex-direction: column; gap: 12px; }
+.countdown-label {
+  font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--color-accent);
+}
+.countdown-units { display: flex; gap: 8px; }
+.countdown-unit {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  min-width: 72px; padding: 12px 10px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-border); border-radius: 6px;
+}
+.countdown-value {
+  font-family: var(--font-heading); font-size: 32px; line-height: 1;
+  font-variant-numeric: tabular-nums; color: var(--color-text);
+}
+.countdown-unit-label { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--color-text-muted); }
+.countdown-done { font-family: var(--font-heading); font-size: 22px; color: var(--color-accent); }
+
+/* Smaller version (merch page) */
+.countdown.compact .countdown-unit { min-width: 56px; padding: 8px; }
+.countdown.compact .countdown-value { font-size: 22px; }
+
+@media (max-width: 860px) {
+  .countdown-unit { min-width: 0; flex: 1; }
+}

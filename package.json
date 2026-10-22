@@ -4,16 +4,24 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
+    "images": "node scripts/optimize-images.mjs",
+    "predev": "npm run images --silent",
     "dev": "vite",
+    "prebuild": "npm run images --silent",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/alfa-slab-one": "5.1.0",
+    "@fontsource/inter": "5.1.0",
+    "@fontsource/lora": "5.1.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "sharp": "0.33.5",
     "vite": "^5.4.11"
   }
 }

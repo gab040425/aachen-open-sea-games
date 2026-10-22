@@ -1,0 +1,43 @@
+.carousel { display: grid; grid-template-columns: 72px 1fr; gap: 12px; align-items: start; }
+
+.carousel-thumbs { display: flex; flex-direction: column; gap: 10px; }
+.carousel-thumb {
+  padding: 0; cursor: pointer;
+  aspect-ratio: 1; border-radius: 6px; overflow: hidden;
+  background: var(--color-card-bg);
+  border: 2px solid transparent;
+  opacity: .6; transition: opacity .15s, border-color .15s;
+}
+.carousel-thumb:hover { opacity: 1; }
+.carousel-thumb.active { opacity: 1; border-color: var(--color-accent); }
+.carousel-thumb .img-slot, .carousel-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.carousel-thumb .img-slot.missing::before { content: ""; }
+
+.carousel-main { position: relative; aspect-ratio: 4 / 5; border-radius: 8px; overflow: hidden; background: var(--color-card-bg); }
+.carousel-image { width: 100%; height: 100%; }
+.carousel-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.carousel-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  display: grid; place-items: center;
+  width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
+  background: var(--color-nav-bg); color: var(--color-text);
+  border: 1px solid var(--color-border);
+  transition: background .15s, color .15s;
+}
+.carousel-arrow:hover { background: var(--color-accent); color: var(--color-text-on-accent); }
+.carousel-arrow.prev { left: 12px; }
+.carousel-arrow.next { right: 12px; }
+
+.carousel-count {
+  position: absolute; right: 12px; bottom: 12px;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 12px; background: var(--color-nav-bg); color: var(--color-text);
+}
+
+/* Phones: thumbnails in a row under the main image */
+@media (max-width: 860px) {
+  .carousel { grid-template-columns: 1fr; }
+  .carousel-thumbs { order: 2; flex-direction: row; }
+  .carousel-thumb { width: 56px; }
+}
