@@ -38,7 +38,7 @@ export default function Organizers() {
               style={{ '--club': club.color, '--i': i }}
               aria-label={`${club.name}, ${club.country}`}
             >
-              <ImageSlot file={club.logo} alt={`${club.name} logo`} className="org-logo" sizes="112px" />
+              <ImageSlot file={club.logo} alt={`${club.name} logo`} className="org-logo" sizes="96px" />
               <div>
                 <div className="org-short">{club.short}</div>
                 <div className="org-name">{club.name}</div>

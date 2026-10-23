@@ -14,10 +14,10 @@ export default function HomePage() {
       <Countries />
       <EventInfo />
       <About />
-      <Organizers />
       <Sports />
       <Merch />
       <Faq />
+      <Organizers />
     </>
   );
 }
