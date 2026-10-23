@@ -53,7 +53,9 @@ export default function Hero() {
         </div>
 
         <div className="hero-actions">
-          <a href="#" className="btn btn-primary">Register now <Icon name="arrow" /></a>
+          {/* Turned off until registration opens. To switch on: remove `is-disabled`, aria-disabled, tabIndex
+              and onClick, and put the form link in href. */}
+          <a href="#" className="btn btn-primary is-disabled" aria-disabled="true" tabIndex={-1} onClick={(e) => e.preventDefault()}>Register now <Icon name="arrow" /></a>
           <a href="#event-info" className="btn btn-dark">Explore the event</a>
         </div>
 

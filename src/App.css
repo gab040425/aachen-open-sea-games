@@ -145,6 +145,12 @@ p { margin: 0; }
 .btn-primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-text-on-accent); }
 .btn-dark    { background: var(--color-card-bg); border-color: var(--color-border); color: var(--color-text); }
 .btn-small   { padding: 10px 16px; font-size: 12px; }
+/* Turned-off button: greyed out, no hover lift, "not allowed" cursor */
+.btn.is-disabled,
+.btn.is-disabled:hover {
+  background: var(--color-card-bg); border-color: var(--color-border); color: var(--color-text-muted);
+  filter: grayscale(1); opacity: .55; transform: none; cursor: not-allowed;
+}
 
 /* Section divider: "// LABEL ————" (components/SectionLabel) */
 .section-label {
