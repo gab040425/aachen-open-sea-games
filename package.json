@@ -8,7 +8,7 @@
     "predev": "npm run images --silent",
     "dev": "vite",
     "prebuild": "npm run images --silent",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
