@@ -4,10 +4,17 @@ import { BrowserRouter } from 'react-router-dom';
 import './fonts';
 import App from './App';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = document.getElementById('root');
+if (root.hasChildNodes()) {
+  ReactDOM.hydrateRoot(root,
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
-);
+  );
+} else {
+  ReactDOM.createRoot(root).render(
+    <React.StrictMode><BrowserRouter><App /></BrowserRouter></React.StrictMode>
+  );
+}
