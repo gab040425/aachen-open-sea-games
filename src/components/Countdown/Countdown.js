@@ -10,7 +10,7 @@ const subscribe = (fn) => {
   if (!timer) timer = setInterval(() => { current = Date.now(); listeners.forEach((l) => l()); }, 1000);
   return () => { listeners.delete(fn); if (!listeners.size) { clearInterval(timer); timer = 0; } };
 };
-export const useNow = () => new Date(useSyncExternalStore(subscribe, () => current));
+export const useNow = () => new Date(useSyncExternalStore(subscribe, () => current, () => current));
 
 const pad = (n) => String(n).padStart(2, '0');
 
