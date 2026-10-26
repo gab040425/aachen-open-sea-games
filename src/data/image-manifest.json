@@ -104,17 +104,20 @@
     ]
   },
   "Logo_MAK.png": {
-    "width": 106,
-    "height": 106,
+    "width": 1010,
+    "height": 1010,
     "widths": [
-      106
+      400,
+      800,
+      1010
     ]
   },
   "Logo_PPI.png": {
-    "width": 77,
-    "height": 77,
+    "width": 557,
+    "height": 479,
     "widths": [
-      77
+      400,
+      557
     ]
   },
   "Logo_SVA.png": {

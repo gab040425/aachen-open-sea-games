@@ -42,7 +42,9 @@ export default function Navbar() {
             {link.label}
           </Link>
         ))}
-        <a href="#" className="btn btn-primary btn-small" onClick={close}>
+        {/* Turned off until registration opens. To switch on: remove `is-disabled`, aria-disabled and
+            tabIndex, change onClick back to {close}, and put the form link in href. */}
+        <a href="#" className="btn btn-primary btn-small is-disabled" aria-disabled="true" tabIndex={-1} onClick={(e) => e.preventDefault()}>
           Register <Icon name="arrow" />
         </a>
       </nav>

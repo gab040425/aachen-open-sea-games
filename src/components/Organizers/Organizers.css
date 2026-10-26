@@ -25,9 +25,13 @@
   box-shadow: 0 8px 40px color-mix(in srgb, var(--club) 15%, transparent);
 }
 
-/* Fixed logo box: the image is scaled down inside it and clipped, so it can never reach the title */
-.org-logo { flex: none; width: 96px; height: 72px; overflow: hidden; }
-.org-logo img { width: 100%; height: 100%; object-fit: contain; }
+/* Fixed logo box: the logo is drawn at --logo-h (from data/clubs.js) and can never
+   grow past the box, so it never reaches the title. */
+.org-logo { flex: none; width: 112px; height: 88px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.org-logo img {
+  height: min(var(--logo-h, 88px), 88px); width: auto; max-width: 100%; object-fit: contain;
+  filter: brightness(0) invert(1);   /* all logos in plain white, so they read on the dark card */
+}
 .org-logo.missing::before { content: "club logo"; }
 
 .org-short { font-size: 28px; font-weight: 800; letter-spacing: .04em; color: var(--club); text-shadow: 0 0 20px color-mix(in srgb, var(--club) 30%, transparent); }
