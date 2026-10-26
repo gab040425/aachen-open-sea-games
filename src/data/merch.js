@@ -21,7 +21,9 @@ const merch = [
     name: 'T-Shirt',
     price: '[Price]',
     images: ['Merch-Tshirt-1.jpg', 'Merch-Tshirt-2.jpg', 'Merch-Tshirt-3.jpg', 'Merch-Tshirt-4.jpg'],
-    story: [placeholder],
+    story: ["A dragon that rules the skies. A tiger that commands the land. A Komodo dragon that survives against all odds.",
+    "In the wild, their paths would never cross. But here in Aachen, they come together, not as rivals, but as equals.",
+    "The black canvas represents a world without borders, while their vibrant colours celebrate the identities we proudly carry."],
     formUrl: '#',           // TODO: Google Forms link
     sizes: sizeRows,
   },
