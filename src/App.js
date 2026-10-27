@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import ScrollToHash from './components/ScrollToHash/ScrollToHash';
 import DitherWave from './components/DitherWave/DitherWave';
+import MobileBar from './components/MobileBar/MobileBar';
 import HomePage from './pages/HomePage';
 // Sub-pages are only downloaded when someone opens them
 import SportPage from './pages/SportPage/SportPage';
@@ -25,6 +26,7 @@ export default function App() {
           </Routes>
       </main>
       <Footer />
+      <MobileBar />
     </div>
   );
 }

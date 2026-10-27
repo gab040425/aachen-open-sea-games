@@ -6,10 +6,10 @@ import merch from '../src/data/merch.js';
 
 const origin = 'https://www.aachenopen.de';
 const routes = [
-  { path: '/', title: 'Aachen Open: SEA Games 2026', description: 'Three nations. One arena. Join Aachen Open: SEA Games on 5–6 December 2026 for sport, culture and community.' },
-  ...sports.map(({ slug, name, description }) => ({ path: `/sports/${slug}`, title: `${name} | Aachen Open: SEA Games`, description })),
-  { path: '/merchandise', title: 'Official Merchandise | Aachen Open: SEA Games', description: 'Explore official Aachen Open: SEA Games merchandise.' },
-  ...merch.map(({ slug, name }) => ({ path: `/merchandise/${slug}`, title: `${name} | Aachen Open: SEA Games`, description: `Explore the ${name} and its design story at Aachen Open: SEA Games.` })),
+  { path: '/', title: 'Aachen Hackenberg Open: SEA Games 2026', description: 'Three nations. One arena. Join Aachen Hackenberg Open: SEA Games on 5–6 December 2026 for sport, culture and community.' },
+  ...sports.map(({ slug, name, description }) => ({ path: `/sports/${slug}`, title: `${name} | Aachen Hackenberg Open: SEA Games`, description })),
+  { path: '/merchandise', title: 'Official Merchandise | Aachen Hackenberg Open: SEA Games', description: 'Explore official Aachen Hackenberg Open: SEA Games merchandise.' },
+  ...merch.map(({ slug, name }) => ({ path: `/merchandise/${slug}`, title: `${name} | Aachen Hackenberg Open: SEA Games`, description: `Explore the ${name} and its design story at Aachen Hackenberg Open: SEA Games.` })),
 ];
 const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const vite = await createServer({ server: { middlewareMode: true }, appType: 'custom', logLevel: 'error' });

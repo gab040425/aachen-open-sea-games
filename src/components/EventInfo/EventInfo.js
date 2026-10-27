@@ -17,7 +17,7 @@ export default function EventInfo() {
       <div className="split">
         <div className="split-text">
           <h2 className="title-lg">EVENT INFORMATION</h2>
-          <p className="muted">Everything you need to know about the Aachen Open: SEA Games</p>
+          <p className="muted">Everything you need to know about the Aachen Hackenberg Open: SEA Games</p>
         </div>
         <ImageSlot file="EventInfo.jpg" alt="Players at a previous event" className="photo photo-info" sizes="(max-width: 860px) 100vw, 440px" />
       </div>

@@ -1,0 +1,26 @@
+.mobile-bar { display: none; }
+
+@media (max-width: 860px) {
+  .mobile-bar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 8px 16px calc(8px + env(safe-area-inset-bottom, 0px));
+    background: var(--color-nav-bg);
+    border-top: 1px solid var(--color-border);
+    transition: translate .3s, opacity .3s;
+  }
+  .mobile-bar.is-hidden { translate: 0 100%; opacity: 0; pointer-events: none; }
+  .mobile-bar .btn { flex: none; }
+
+  /* small countdown: just the numbers in a row */
+  .mobile-bar-countdown { min-width: 0; }
+  .mobile-bar-countdown .countdown-label { display: none; }
+  .mobile-bar-countdown .countdown-units { gap: 4px; }
+  .mobile-bar-countdown .countdown-unit { flex: none; min-width: 38px; padding: 3px 4px; gap: 1px; }
+  .mobile-bar-countdown .countdown-value { font-size: 16px; }
+  .mobile-bar-countdown .countdown-unit-label { font-size: 7px; }
+  .mobile-bar .countdown-done { font-size: 15px; }
+
+  /* room at the bottom of the page so the bar never covers the footer */
+  .app { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)); }
+}

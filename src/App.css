@@ -1,5 +1,5 @@
 /* =========================================================
-   AACHEN OPEN: SEA GAMES — global styles
+   AACHEN HACKENBERG OPEN: SEA GAMES — global styles
    Every colour and font is a variable here. Change it once,
    it updates everywhere. Never use literal colours elsewhere.
    ========================================================= */
@@ -101,6 +101,19 @@ body {
     radial-gradient(circle at 0% 100%, var(--bg-glow-core) 0, var(--bg-glow-outer) 10%, transparent 32%),
     linear-gradient(20deg, var(--bg-deep) 10%, var(--bg-royal) 42%, var(--bg-navy) 58%, var(--bg-deep) 85%);
   background-attachment: fixed;
+}
+/* Phones ignore background-attachment: fixed, so the gradient above would stretch over the
+   whole (very tall) page and show up dark wherever the wave canvas doesn't reach (e.g. while
+   the address bar slides away). A fixed copy behind the canvas keeps the screen covered. */
+@media (max-width: 860px) {
+  .app { background-image: none; }
+  .app::before {
+    content: ""; position: fixed; top: 0; left: 0; right: 0; z-index: 0; pointer-events: none;
+    height: calc(100lvh + 120px);
+    background-image:
+      radial-gradient(circle at 0% 100%, var(--bg-glow-core) 0, var(--bg-glow-outer) 10%, transparent 32%),
+      linear-gradient(20deg, var(--bg-deep) 10%, var(--bg-royal) 42%, var(--bg-navy) 58%, var(--bg-deep) 85%);
+  }
 }
 /* Page content sits above the fixed wave canvas */
 .app > main, .app > .footer { position: relative; z-index: 1; }

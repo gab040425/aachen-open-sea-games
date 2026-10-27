@@ -1,6 +1,6 @@
-# Aachen Open: SEA Games — website
+# Aachen Hackenberg Open: SEA Games — website
 
-The website for the **Aachen Open: SEA Games** (5–6 December 2026, Aachen): a sports weekend for the Vietnamese, Indonesian and Malaysian student communities.
+The website for the **Aachen Hackenberg Open: SEA Games** (5–6 December 2026, Aachen): a sports weekend for the Vietnamese, Indonesian and Malaysian student communities.
 
 This README explains, without assuming any web experience:
 

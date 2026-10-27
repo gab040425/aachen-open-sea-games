@@ -43,7 +43,7 @@ export default function Hero() {
   return (
     <section className="hero container" id="home">
       <div className="hero-text">
-        <h1>AACHEN OPEN:<br />SEA GAMES</h1>
+        <h1>AACHEN HACKENBERG OPEN:<br />SEA GAMES</h1>
         <p className="hero-subtitle">Three nations. One arena.</p>
         <p className="muted">Celebrate the spirit of Southeast Asia through sport, culture and community. Join us in Aachen for a weekend to remember.</p>
 

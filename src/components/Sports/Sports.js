@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ImageSlot from '../ImageSlot/ImageSlot';
 import Icon from '../Icon/Icon';
 import sports from '../../data/sports';
+import links from '../../data/links';
 import './Sports.css';
 
 export default function Sports() {
@@ -10,6 +11,9 @@ export default function Sports() {
     <section className="container section" id="sports">
       <SectionLabel>Sports</SectionLabel>
       <h2 className="title">Sports</h2>
+      <a href={links.playerHandbook} target="_blank" rel="noreferrer" className="btn btn-dark sports-handbook">
+        Player Handbook <Icon name="arrow" />
+      </a>
       <p className="muted">Find your sport. Take your place in the game.</p>
 
       <div className="sports-grid">

@@ -23,7 +23,7 @@ export default function Organizers() {
 
       <div className="organizers-head">
         <h2 className="title">Organised by</h2>
-        <p className="muted">Three student clubs, one for each nation, bring the Aachen Open: SEA Games to life.</p>
+        <p className="muted">Three student clubs, one for each nation, bring the Aachen Hackenberg Open: SEA Games to life.</p>
       </div>
 
       <div className="org-grid">
