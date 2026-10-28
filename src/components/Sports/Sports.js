@@ -29,7 +29,7 @@ export default function Sports() {
         ))}
       </div>
 
-      <p className="note">All skill levels are welcome. Check the rules and team requirements before registering.</p>
+      <p className="note">All skill levels are welcome. Check player handbook before registering.</p>
     </section>
   );
 }
