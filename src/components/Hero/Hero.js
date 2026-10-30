@@ -4,6 +4,8 @@ import Icon from '../Icon/Icon';
 import Countdown from '../Countdown/Countdown';
 import { onFrame } from '../../lib/ticker';
 import { nextHeroCountdown } from '../../data/countdowns';
+import links from '../../data/links';
+import FormButton from '../FormButton/FormButton';
 import './Hero.css';
 
 export default function Hero() {
@@ -53,9 +55,8 @@ export default function Hero() {
         </div>
 
         <div className="hero-actions">
-          {/* Turned off until registration opens. To switch on: remove `is-disabled`, aria-disabled, tabIndex
-              and onClick, and put the form link in href. */}
-          <a href="#" className="btn btn-primary is-disabled" aria-disabled="true" tabIndex={-1} onClick={(e) => e.preventDefault()}>Register now <Icon name="arrow" /></a>
+          {/* switches on by itself while player registration is open */}
+          <FormButton href={links.playerRegistration} window="registration">Register now</FormButton>
           <a href="#event-info" className="btn btn-dark">Explore the event</a>
         </div>
 

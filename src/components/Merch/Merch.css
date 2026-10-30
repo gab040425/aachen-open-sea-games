@@ -1,4 +1,12 @@
 .merch-countdown { margin-top: 28px; }
+.merch-card-price { margin-left: 10px; font-family: var(--font-body); font-size: 16px; color: var(--color-accent); }
+.merch-combo-note { margin-top: 20px; font-size: 14px; color: var(--color-text-soft); }
+.merch-combo-note span {
+  margin-right: 8px; padding: 2px 8px; border-radius: 999px;
+  font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  background: var(--color-accent); color: var(--color-text-on-accent);
+}
+.merch-combo-note strong { color: var(--color-accent); }
 .merch-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 36px; }
 .merch-card {
   display: flex; flex-direction: column;

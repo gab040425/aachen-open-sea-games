@@ -3,17 +3,17 @@ import { Link, useLocation } from 'react-router-dom';
 import ImageSlot from '../ImageSlot/ImageSlot';
 import Icon from '../Icon/Icon';
 import links from '../../data/links';
+import FormButton from '../FormButton/FormButton';
 import './Navbar.css';
 
 // `to` can point at a page ("/sports/chess") or a section of the home page ("/#faq").
 // `match` (optional) is the path that marks the link as active, if it differs from `to`.
 const navLinks = [
   { label: 'Home', to: '/' },
-  { label: 'Event Info', to: '/#event-info' },
   { label: 'About', to: '/#about' },
   { label: 'Sports', to: '/#sports' },
-  { label: 'Matches', to: '/', soon: true },       // TODO: link to a matches page
   { label: 'Merchandise', to: '/merchandise/t-shirt', match: '/merchandise' },
+  { label: 'Vendors', to: '/#vendors' },
   { label: 'FAQ', to: '/#faq' },
   { label: 'Organisers', to: '/#organizers' },
 ];
@@ -51,11 +51,8 @@ export default function Navbar() {
         <a href={links.instagram} target="_blank" rel="noreferrer" className="btn btn-dark btn-small" onClick={close}>
           Contact <Icon name="arrow" />
         </a>
-        {/* Turned off until registration opens. To switch on: remove `is-disabled`, aria-disabled and
-            tabIndex, change onClick back to {close}, and put the form link in href. */}
-        <a href="#" className="btn btn-primary btn-small is-disabled" aria-disabled="true" tabIndex={-1} onClick={(e) => e.preventDefault()}>
-          Register <Icon name="arrow" />
-        </a>
+        {/* switches on by itself while player registration is open */}
+        <FormButton href={links.playerRegistration} window="registration" className="btn-small" onClick={close}>Register</FormButton>
       </nav>
     </header>
   );

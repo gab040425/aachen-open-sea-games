@@ -15,26 +15,75 @@
 .merch-tabs a.active { background: var(--color-accent); color: var(--color-text-on-accent); }
 
 /* Images left, info right */
-.merch-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: start; }
+.merch-layout {
+  display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px 56px; align-items: start;
+  grid-template-areas: "pics info";
+}
+/* desktop: pictures stay in view while scrolling past the size guide, so no empty space beside it */
+.merch-layout > .carousel { grid-area: pics; position: sticky; top: 110px; }
+.merch-info { grid-area: info; }
 .merch-info { display: flex; flex-direction: column; align-items: flex-start; }
 .merch-info .title-lg { margin-bottom: 12px; }
-.merch-price { font-size: 24px; color: var(--color-accent); margin-bottom: 28px; }
+.merch-price-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; margin-bottom: 28px; }
+.merch-price { font-size: 24px; color: var(--color-accent); }
+.merch-combo {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px;
+  padding-left: 16px; border-left: 1px solid var(--color-chip-border);
+  font-size: 13px; color: var(--color-text-muted);
+}
+.merch-combo strong { font-weight: 600; color: var(--color-text); }
+.merch-combo-save {
+  font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--color-accent);
+}
 .merch-page-countdown { margin-bottom: 24px; }
-.merch-buy { margin-bottom: 40px; }
+.merch-buy { margin-bottom: 32px; }
 
 /* Size guide */
-.size-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-.size-table caption { text-align: left; margin-bottom: 12px; font-family: var(--font-heading); font-size: 22px; color: var(--color-text); }
-.size-table th, .size-table td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--color-border); }
+.size-guide-title { margin-bottom: 12px; font-family: var(--font-heading); font-size: 22px; font-weight: 400; color: var(--color-text); }
+.size-guide-title span { margin-left: 8px; font-family: var(--font-body); font-size: 12px; color: var(--color-text-muted); }
+.size-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.size-table { width: 100%; border-collapse: collapse; font-size: 13px; white-space: nowrap; }
+.size-table th, .size-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--color-border); }
+.size-note { margin-top: 10px; font-size: 12px; line-height: 1.5; color: var(--color-text-muted); }
+.size-note:last-child { color: var(--color-text-soft); }
 .size-table th { font-size: 11px; font-weight: 500; text-transform: uppercase; color: var(--color-text-muted); background: var(--color-card-bg); }
 .size-table td:first-child { font-weight: 600; }
 .size-table td:not(:first-child) { color: var(--color-text-muted); }
 
 /* Story */
-.merch-story { max-width: 720px; }
+.size-guide,
+.merch-story {   /* matching cards, so the story and size guide read as one set */
+  width: 100%; padding: 24px;
+  background: var(--color-panel-bg);
+  border: 1px solid var(--color-chip-border); border-radius: 8px;
+}
+/* story: full-width card under everything, text in two columns on wide screens */
+.merch-story { margin-top: 48px; padding: 32px; }
+.merch-story-body { columns: 3 260px; column-gap: 40px; }
+.merch-story-body p { break-inside: avoid; }
+.merch-story .title { font-size: 28px; margin-bottom: 14px; }
+.merch-story p.muted { font-size: 15px; line-height: 1.65; }
+.merch-story p.muted { margin: 0 0 12px; }
+.merch-story-kicker { margin-bottom: 6px; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--color-accent); }
 
 @media (max-width: 860px) {
   .merch-page { padding-top: 32px; }
   .merch-tabs { margin-bottom: 24px; }
-  .merch-layout { grid-template-columns: 1fr; gap: 32px; }
+  .merch-layout { grid-template-columns: 1fr; gap: 32px; grid-template-areas: "pics" "info"; }
+  .merch-layout > .carousel { position: static; }
+  .merch-story { margin-top: 32px; }
+  .size-guide, .merch-story { padding: 18px 16px; }
+}
+
+/* Phones: tighter table so all six columns fit (it still scrolls sideways on very narrow screens) */
+@media (max-width: 480px) {
+  .size-table { font-size: 12px; }
+  .size-table th, .size-table td { padding: 7px 5px; }
+  .size-table th { font-size: 9px; letter-spacing: 0; }
+}
+
+/* Small phones: combo sits on its own line under the price, so no divider */
+@media (max-width: 480px) {
+  .merch-combo { padding-left: 0; border-left: 0; }
 }

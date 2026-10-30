@@ -43,6 +43,24 @@
       1600
     ]
   },
+  "Final Jersey.png": {
+    "width": 4960,
+    "height": 3508,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Final T-Shirt.png": {
+    "width": 3508,
+    "height": 2480,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
   "HeroBadminton-trim.png": {
     "width": 198,
     "height": 420,
@@ -125,6 +143,78 @@
     "height": 279,
     "widths": [
       202
+    ]
+  },
+  "Merch-Jersey-Back.jpg": {
+    "width": 1600,
+    "height": 2000,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Merch-Jersey-Crest.jpg": {
+    "width": 1600,
+    "height": 2000,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Merch-Jersey-Detail.jpg": {
+    "width": 1600,
+    "height": 2000,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Merch-Jersey-Front.jpg": {
+    "width": 1600,
+    "height": 2000,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Merch-Tshirt-Back.jpg": {
+    "width": 1600,
+    "height": 2000,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Merch-Tshirt-Detail.jpg": {
+    "width": 1600,
+    "height": 2000,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Merch-Tshirt-Front.jpg": {
+    "width": 1600,
+    "height": 2000,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Merch-Tshirt-Logo.jpg": {
+    "width": 1600,
+    "height": 2000,
+    "widths": [
+      400,
+      800,
+      1600
     ]
   },
   "SportBadminton.jpg": {

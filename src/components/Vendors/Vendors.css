@@ -1,0 +1,11 @@
+/* Short section, so less space around it than the usual section gap */
+#vendors { margin-top: calc(var(--section-gap) * .7); }
+#vendors + .section { margin-top: calc(var(--section-gap) * .7); }
+
+.vendors-layout { display: grid; grid-template-columns: 1fr auto; gap: 24px 56px; align-items: start; }   /* countdown starts level with the title */
+.vendors-text .title { margin-bottom: 16px; }
+.vendors-signup { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+
+@media (max-width: 860px) {
+  .vendors-layout { grid-template-columns: 1fr; gap: 28px; }
+}

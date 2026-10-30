@@ -1,4 +1,5 @@
 import { useSyncExternalStore } from 'react';
+import { countdownPhase } from '../../data/countdowns';
 import './Countdown.css';
 
 // One shared clock for every countdown on the page: a single 1-second timer
@@ -22,7 +23,9 @@ export default function Countdown({ countdown: pick, className = '' }) {
   const countdown = typeof pick === 'function' ? pick(now) : pick;
   if (!countdown) return null;
 
-  const left = Math.max(0, new Date(countdown.date) - now);
+  // before opening / until closing / over: caption and target date switch by themselves
+  const phase = countdownPhase(countdown, now);
+  const left = phase.done ? 0 : Math.max(0, new Date(phase.date) - now);
   if (left === 0) {
     return countdown.doneText ? <p className={`countdown-done ${className}`}>{countdown.doneText}</p> : null;
   }
@@ -36,8 +39,8 @@ export default function Countdown({ countdown: pick, className = '' }) {
   ];
 
   return (
-    <div className={`countdown ${className}`} role="timer" aria-label={`${countdown.label} ${units.map((u) => `${u.value} ${u.label}`).join(' ')}`}>
-      <span className="countdown-label">{countdown.label}</span>
+    <div className={`countdown ${className}`} role="timer" aria-label={`${phase.label} ${units.map((u) => `${u.value} ${u.label}`).join(' ')}`}>
+      <span className="countdown-label">{phase.label}</span>
       <div className="countdown-units" aria-hidden="true">
         {units.map((u) => (
           <div key={u.label} className="countdown-unit">

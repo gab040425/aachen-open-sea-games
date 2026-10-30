@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Icon from '../Icon/Icon';
 import Countdown from '../Countdown/Countdown';
 import { getCountdown } from '../../data/countdowns';
+import links from '../../data/links';
+import FormButton from '../FormButton/FormButton';
 import './MobileBar.css';
 
 // Phones only (see MobileBar.css): a bar stuck to the bottom of the screen with the
 // Register button and a small countdown (numbers only). Hidden while the hero is on screen,
 // since the hero already shows both.
-// TODO: once registration is open, switch the countdown to the "registration ends" date.
+// The countdown switches from "opens" to "closes" by itself (dates in data/countdowns.js).
 export default function MobileBar() {
   const { pathname } = useLocation();
   const [heroVisible, setHeroVisible] = useState(false);
@@ -24,11 +25,7 @@ export default function MobileBar() {
   return (
     <div className={`mobile-bar ${heroVisible ? 'is-hidden' : ''}`} aria-hidden={heroVisible}>
       <Countdown countdown={getCountdown('registration')} className="compact mobile-bar-countdown" />
-      {/* Turned off until registration opens. To switch on: remove `is-disabled`, aria-disabled, tabIndex
-          and onClick, and put the form link in href. */}
-      <a href="#" className="btn btn-primary btn-small is-disabled" aria-disabled="true" tabIndex={-1} onClick={(e) => e.preventDefault()}>
-        Register <Icon name="arrow" />
-      </a>
+      <FormButton href={links.playerRegistration} window="registration" className="btn-small">Register</FormButton>
     </div>
   );
 }

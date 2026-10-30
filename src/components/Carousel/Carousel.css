@@ -17,6 +17,31 @@
 .carousel-image { width: 100%; height: 100%; }
 .carousel-image img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Zoom: the image scales up around --zx/--zy (set by ZoomImage.js from the pointer position) */
+.zoom-image { position: absolute; inset: 0; overflow: hidden; cursor: zoom-in; touch-action: pan-y; }
+.zoom-image img { transform-origin: var(--zx, 50%) var(--zy, 50%); transition: transform .25s ease; }
+.zoom-image.is-zoomed img { transform: scale(var(--zoom)); }
+.zoom-image.is-zoomed { cursor: zoom-out; touch-action: none; }   /* touch: dragging pans instead of scrolling */
+.carousel-arrow, .carousel-count { z-index: 1; transition: background .15s, color .15s, opacity .2s; }
+
+.zoom-hint {
+  position: absolute; left: 12px; bottom: 12px;
+  padding: 4px 10px; border-radius: 999px;
+  font-size: 12px; background: var(--color-nav-bg); color: var(--color-text);
+  pointer-events: none; transition: opacity .2s;
+}
+/* show the hint that fits the device: mouse/trackpad vs touch */
+.zoom-hint-touch { display: none; }
+.zoom-image.is-zoomed .zoom-hint { opacity: 0; }
+@media (hover: none) {
+  .zoom-hint-mouse { display: none; }
+  .zoom-hint-touch { display: inline; }
+  .zoom-image.is-zoomed .zoom-hint { opacity: 1; }
+  /* touch: while zoomed, hide the arrows and counter so they don't block dragging */
+  .zoom-image.is-zoomed ~ .carousel-arrow,
+  .zoom-image.is-zoomed ~ .carousel-count { opacity: 0; pointer-events: none; }
+}
+
 .carousel-arrow {
   position: absolute; top: 50%; transform: translateY(-50%);
   display: grid; place-items: center;

@@ -5,6 +5,7 @@ import About from '../components/About/About';
 import Organizers from '../components/Organizers/Organizers';
 import Sports from '../components/Sports/Sports';
 import Merch from '../components/Merch/Merch';
+import Vendors from '../components/Vendors/Vendors';
 import Faq from '../components/Faq/Faq';
 
 export default function HomePage() {
@@ -16,6 +17,7 @@ export default function HomePage() {
       <About />
       <Sports />
       <Merch />
+      <Vendors />
       <Faq />
       <Organizers />
     </>
