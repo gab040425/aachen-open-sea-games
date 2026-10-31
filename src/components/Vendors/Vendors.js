@@ -22,18 +22,15 @@ export default function Vendors() {
           <div className="vendors-gallery">
             <Carousel images={images} alt="Vendor booths at a past event" zoom={false} />
           </div>
-          <p className="vendors-fee-note">
-            <span>Booth rental</span>
-            One day for <strong>90€</strong> or both days for <strong>160€</strong> !
-          </p>
+          <p className="vendors-fee-note"> <span>Booth rental</span> One day for <strong>90€</strong> or both days for <strong>160€</strong> !</p>
         </div>
         {/* countdown + sign-up on the right */}
         <div className="vendors-signup">
           <Countdown countdown={getCountdown('vendor-registration')} className="vendors-countdown" />
           <FormButton href={links.vendorRegistration} window="vendor-registration" className="vendors-button">Register your booth</FormButton>
           <div className="vendors-links">
-            <a href={links.termsAndConditions || undefined}>Terms & Conditions</a>
-            <a href={links.hygieneChecklist || undefined}> Hygiene Checklist</a>
+            <a href={links.termsAndConditions || undefined}>Terms & Conditions (Coming Soon)</a>
+            <a href={links.hygieneChecklist || undefined}> Hygiene Checklist (Coming Soon!)</a>
           </div>
         </div>
       </div>
