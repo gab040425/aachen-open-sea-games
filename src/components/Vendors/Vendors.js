@@ -29,7 +29,7 @@ export default function Vendors() {
           <Countdown countdown={getCountdown('vendor-registration')} className="vendors-countdown" />
           <FormButton href={links.vendorRegistration} window="vendor-registration" className="vendors-button">Register your booth</FormButton>
           <div className="vendors-links">
-            <a href={links.termsAndConditions || undefined}>Terms & Conditions (Coming Soon)</a>
+            <a href={links.termsAndConditions || undefined}>Terms & Conditions (Coming Soon!)</a>
             <a href={links.hygieneChecklist || undefined}> Hygiene Checklist (Coming Soon!)</a>
           </div>
         </div>
