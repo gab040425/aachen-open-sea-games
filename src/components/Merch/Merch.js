@@ -15,7 +15,7 @@ export default function Merch() {
       <p className="muted">Wear the Games. Take a piece of the weekend home.</p>
       <Countdown countdown={getCountdown('merch-presale')} className="merch-countdown" />
 
-      <p className="merch-combo-note"><span>Combo</span> Jersey + T-shirt together for <strong>{combo.price}</strong> (save {combo.saving})</p>
+      <p className="merch-combo-note"><span>Combo</span> Jersey + T-shirt together for <strong>{combo.price}</strong> ({combo.saving} saved!)</p>
 
       <div className="merch-grid">
         {merch.map((item) => (

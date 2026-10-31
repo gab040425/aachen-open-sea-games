@@ -5,7 +5,7 @@ import ZoomImage from './ZoomImage';
 import './Carousel.css';
 
 // Image carousel: thumbnails + main image with previous/next buttons.
-export default function Carousel({ images, alt }) {
+export default function Carousel({ images, alt, zoom = true }) {
   const [index, setIndex] = useState(0);
   const go = (step) => setIndex((i) => (i + step + images.length) % images.length);
 
@@ -25,7 +25,11 @@ export default function Carousel({ images, alt }) {
       </div>
 
       <div className="carousel-main">
-        <ZoomImage key={images[index]} file={images[index]} alt={`${alt}, image ${index + 1} of ${images.length}`} />
+        {zoom ? (
+          <ZoomImage key={images[index]} file={images[index]} alt={`${alt}, image ${index + 1} of ${images.length}`} />
+        ) : (
+          <ImageSlot key={images[index]} file={images[index]} alt={`${alt}, image ${index + 1} of ${images.length}`} className="carousel-image" sizes="(max-width: 860px) 100vw, 680px" />
+        )}
         <button className="carousel-arrow prev" onClick={() => go(-1)} aria-label="Previous image"><Icon name="chevron-left" /></button>
         <button className="carousel-arrow next" onClick={() => go(1)} aria-label="Next image"><Icon name="chevron-right" /></button>
         <span className="carousel-count">{index + 1} / {images.length}</span>

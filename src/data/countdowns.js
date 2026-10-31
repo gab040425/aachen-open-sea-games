@@ -19,7 +19,7 @@ const countdowns = [
   },
   {
     id: 'vendor-registration',   // vendors section
-    start: '2026-11-01T18:00:00+01:00',
+    start: '2026-11-08T18:00:00+01:00',
     end:   '2026-11-29T23:59:00+01:00',
     labels: { before: 'Vendor registration opens in', during: 'Vendor registration closes in' },
     doneText: 'Vendor registration is closed.',
