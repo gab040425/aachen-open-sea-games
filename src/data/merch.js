@@ -32,9 +32,9 @@ const merch = [
     slug: 'jersey',
     name: 'Official Jersey',
     price: '11€',
-    // Design renders for now (cut from Final Jersey.png). Photoshoot pictures later:
+    // Design renders for now (cut from image-originals/final jersey-2.png). Photoshoot pictures later:
     // images: ['Merch-Jersey-1.jpg', 'Merch-Jersey-2.jpg', 'Merch-Jersey-3.jpg', 'Merch-Jersey-4.jpg'],
-    images: ['Merch-Jersey-Back.jpg', 'Merch-Jersey-Front.jpg'],   // close-ups also available: Merch-Jersey-Detail.jpg, Merch-Jersey-Crest.jpg
+    images: ['Merch-Jersey-Back.jpg', 'Merch-Jersey-Front.jpg'],
     storyTitle: 'Unity in Motion',
     // one string per paragraph: the story and meaning of the design
     story: [
@@ -49,9 +49,9 @@ const merch = [
     slug: 't-shirt',
     name: 'T-Shirt',
     price: '12€',
-    // Design renders for now (cut from Final T-Shirt.png). Photoshoot pictures later:
+    // Design renders for now (cut from image-originals/Final T-Shirt-2.png). Photoshoot pictures later:
     // images: ['Merch-Tshirt-1.jpg', 'Merch-Tshirt-2.jpg', 'Merch-Tshirt-3.jpg', 'Merch-Tshirt-4.jpg'],
-    images: ['Merch-Tshirt-Back.jpg', 'Merch-Tshirt-Front.jpg'],   // close-ups also available: Merch-Tshirt-Detail.jpg, Merch-Tshirt-Logo.jpg
+    images: ['Merch-Tshirt-Back.jpg', 'Merch-Tshirt-Front.jpg'],
     storyTitle: 'Energy & Heritage',
     story: [
       'On the front, handwritten lettering wrapped in fiery florals captures the passion and energy of sport, a homage to the cultures we come from.',

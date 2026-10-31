@@ -7,7 +7,11 @@
 .sport-header .title-lg { margin-bottom: 12px; }
 .sport-page-format { margin-bottom: 20px; font-size: 14px; color: var(--color-text-muted); }
 .sport-header .hero-actions { margin-top: 32px; }
-.sport-countdown { margin-top: 32px; }
+.sport-signup { display: inline-flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+.sport-handbook { justify-content: center; }
+@media (max-width: 860px) {
+  .sport-signup { display: flex; }   /* phones: full width, like the countdown */
+}
 .sport-page-photo { aspect-ratio: 436 / 291; }
 
 .sport-info { display: grid; gap: 12px; }

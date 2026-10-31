@@ -1,7 +1,7 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
 import Carousel from '../../components/Carousel/Carousel';
 import Countdown from '../../components/Countdown/Countdown';
-import FormButton from '../../components/FormButton/FormButton';
+import Icon from '../../components/Icon/Icon';
 import { getCountdown } from '../../data/countdowns';
 import merch, { combo, sizeNotes } from '../../data/merch';
 import './MerchPage.css';
@@ -40,8 +40,9 @@ export default function MerchPage() {
 
           <Countdown countdown={getCountdown('merch-presale')} className="compact merch-page-countdown" />
 
-          {/* switches on by itself while the presale is open */}
-          <FormButton href={item.formUrl} window="merch-presale" className="merch-buy">Order now</FormButton>
+          {/* always clickable (for testing). To switch on only during the presale again:
+              <FormButton href={item.formUrl} window="merch-presale" className="merch-buy">Order now</FormButton> */}
+          <a href={item.formUrl} target="_blank" rel="noreferrer" className="btn btn-primary merch-buy">Order now <Icon name="arrow" /></a>
 
           <div className="size-guide">
             <h2 className="size-guide-title">Size guide <span>all in cm</span></h2>

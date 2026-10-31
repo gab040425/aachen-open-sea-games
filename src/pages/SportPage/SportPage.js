@@ -4,6 +4,7 @@ import Icon from '../../components/Icon/Icon';
 import Countdown from '../../components/Countdown/Countdown';
 import sports from '../../data/sports';
 import { getCountdown } from '../../data/countdowns';
+import links from '../../data/links';
 import './SportPage.css';
 
 // A rule is a string (one bullet) or { title, items } (a sub-heading with nested rules).
@@ -43,17 +44,27 @@ export default function SportPage() {
             <a href="#" className="btn btn-primary">Register for {sport.name} <Icon name="arrow" /></a>
           </div>
           */}
-          <Countdown countdown={getCountdown('registration')} className="sport-countdown" />
+          {/* countdown and handbook button share one width, so they read as a single block */}
+          <div className="sport-signup">
+            <Countdown countdown={getCountdown('registration')} className="sport-countdown" />
+            <a href={links.playerHandbook} target="_blank" rel="noreferrer" className="btn btn-dark btn-small sport-handbook">Player Handbook <Icon name="arrow" /></a>
+          </div>
         </div>
         <ImageSlot file={sport.file} alt={sport.name} className="photo sport-page-photo" sizes="(max-width: 860px) 100vw, 465px" eager />
       </section>
 
-      {/* Team requirements, then rules */}
+      {/* Team requirements, matches, then rules */}
       <section className="sport-info section">
         <div className="sport-info-card">
           <h2>{sport.requirementsTitle || 'Team requirements'}</h2>
           <ul>{sport.requirements.map((r, i) => <li key={i}>{r}</li>)}</ul>
         </div>
+        {sport.matches && (
+          <div className="sport-info-card sport-rules">
+            <h2>Matches</h2>
+            <RuleList items={sport.matches} />
+          </div>
+        )}
         <div className="sport-info-card sport-rules">
           <h2>Rules</h2>
           <RuleList items={sport.rules} />

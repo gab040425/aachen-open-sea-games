@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import ImageSlot from '../ImageSlot/ImageSlot';
 import Icon from '../Icon/Icon';
 import Countdown from '../Countdown/Countdown';
@@ -57,7 +58,7 @@ export default function Hero() {
         <div className="hero-actions">
           {/* switches on by itself while player registration is open */}
           <FormButton href={links.playerRegistration} window="registration">Register now</FormButton>
-          <a href="#event-info" className="btn btn-dark">Explore the event</a>
+          <Link to="/merchandise/jersey" className="btn btn-dark">Shop merch</Link>
         </div>
 
         {/* Shows the next upcoming date from data/countdowns.js */}
