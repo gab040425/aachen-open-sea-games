@@ -2,6 +2,8 @@
 const links = {
   instagram: 'https://www.instagram.com/aachen.open/',
   playerHandbook: '/player-handbook.pdf',
+  termsAndConditions: '',
+  hygieneChecklist: '',
   // Forms. Their buttons switch on by themselves while the form is open (dates in countdowns.js).
   playerRegistration: 'https://docs.google.com/forms/d/e/1FAIpQLSfaPNJ5yByAH-4_hHkI81cQDbEXv8WUk_HVIe9RqoxTNwnJoA/viewform?usp=dialog',
   vendorRegistration: 'https://forms.gle/a22zQXv7HSZMv4AAA',
