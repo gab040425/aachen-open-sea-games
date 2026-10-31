@@ -4,8 +4,29 @@
 
 .vendors-layout { display: grid; grid-template-columns: 1fr auto; gap: 24px 56px; align-items: start; }   /* countdown starts level with the title */
 .vendors-text .title { margin-bottom: 16px; }
-.vendors-signup { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+.vendors-signup { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; padding-top: 150px;}
+
+/* Booth rental fee note */
+.vendors-fee-note {margin-top: 20px; font-size: 14px; color: var(--color-text-soft);}
+.vendors-fee-note span {margin-right: 8px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: var(--color-accent);color: var(--color-text-on-accent);}
+.vendors-fee-note strong {color: var(--color-accent);}
+
+/* Carousel */
+.vendors-gallery {width: 100%; max-width: 680px; min-width: 0; margin-top: 24px;}
+.vendors-gallery .carousel { grid-template-columns: minmax(0, 1fr);}
+.vendors-gallery .carousel-main {aspect-ratio: 16 / 7; border-radius: 4px;}
+.vendors-gallery .carousel-thumbs {order: 2; flex-direction: row; flex-wrap: wrap;}
+.vendors-gallery .carousel-thumb {width: 56px; flex: 0 0 56px;}
+.vendors-gallery .carousel-arrow {background: color-mix(in srgb, var(--cream) 18%, transparent); border: 1px solid color-mix(in srgb, var(--cream) 35%, transparent); border-radius: 50%; backdrop-filter: blur(8px); box-shadow: 0 2px 8px var(--shadow-card); color: var(--color-text);}
+.vendors-gallery .carousel-arrow:hover {background: color-mix(in srgb, var(--cream) 32%, transparent); color: var(--color-accent);}
+.vendors-gallery .carousel-thumbs {display: none;}
+
+/* Vendor links */
+.vendors-links { display: flex; flex-direction: column; gap: 12px; font-size: 12px; color: var(--color-text-muted);}
+.vendors-links a { text-decoration: underline; text-underline-offset: 3px; }
+.vendors-links a:hover { color: var(--color-accent); }
 
 @media (max-width: 860px) {
   .vendors-layout { grid-template-columns: 1fr; gap: 28px; }
+  .vendors-signup { padding-top: 0; }
 }

@@ -215,5 +215,41 @@
       400,
       696
     ]
+  },
+  "Vendor-2.jpg": {
+    "width": 5568,
+    "height": 3712,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Vendor-3.jpg": {
+    "width": 5568,
+    "height": 3712,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Vendor-4.jpg": {
+    "width": 5568,
+    "height": 3712,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
+  },
+  "Vendor.jpg": {
+    "width": 5568,
+    "height": 3712,
+    "widths": [
+      400,
+      800,
+      1600
+    ]
   }
 }
