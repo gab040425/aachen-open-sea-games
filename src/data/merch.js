@@ -1,4 +1,4 @@
-import links from './links';
+import links from './links.js';
 
 // All merch info lives here. The home page cards and the merch page
 // (/merchandise/<slug>) are built from this list.
