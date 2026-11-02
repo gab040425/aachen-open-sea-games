@@ -1,7 +1,7 @@
 // Outside links used in several places (navbar, footer, hero, sports, vendors, merch).
 const links = {
   instagram: 'https://www.instagram.com/aachen.open/',
-  playerHandbook: 'https://drive.google.com/file/d/1r_E-EWV4-QrbCaLPvuUu6ujMpU_Vbg-3/view',
+  playerHandbook: '/player-handbook.pdf',
   termsAndConditions: '',
   hygieneChecklist: '',
   // Forms. Their buttons switch on by themselves while the form is open (dates in countdowns.js).
