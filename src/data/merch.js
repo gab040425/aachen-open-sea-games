@@ -5,7 +5,7 @@ import links from './links.js';
 // Images go in public/images/. The first image is also used on the home page card.
 // Size chart (Asian adult standard sizes, all in cm; same chart for every item).
 // length = clothes length, chest = chest circumference, shoulder = shoulder width.
-// The supplier chart gives weight in jin (斤); converted here to kg (1 jin = 0.5 kg).
+// The supplier chart givess weight in jin (斤); converted here to kg (1 jin = 0.5 kg).
 const sizeRows = [
   //  size    length chest shoulder  height       weight (kg)
   ['XS',  62, 44, 42, '150–155', '42.5–47.5'],
@@ -32,9 +32,9 @@ const merch = [
     slug: 'jersey',
     name: 'Official Jersey',
     price: '11€',
-    // Design renders for now (cut from image-originals/final jersey-2.png). Photoshoot pictures later:
+    // Design renders for now (cut from Final Jersey.png). Photoshoot pictures later:
     // images: ['Merch-Jersey-1.jpg', 'Merch-Jersey-2.jpg', 'Merch-Jersey-3.jpg', 'Merch-Jersey-4.jpg'],
-    images: ['Merch-Jersey-Back.jpg', 'Merch-Jersey-Front.jpg'],
+    images: ['Merch-Jersey-Back.jpg', 'Merch-Jersey-Front.jpg'],   // close-ups also available: Merch-Jersey-Detail.jpg, Merch-Jersey-Crest.jpg
     storyTitle: 'Unity in Motion',
     // one string per paragraph: the story and meaning of the design
     story: [
@@ -49,9 +49,9 @@ const merch = [
     slug: 't-shirt',
     name: 'T-Shirt',
     price: '12€',
-    // Design renders for now (cut from image-originals/Final T-Shirt-2.png). Photoshoot pictures later:
+    // Design renders for now (cut from Final T-Shirt.png). Photoshoot pictures later:
     // images: ['Merch-Tshirt-1.jpg', 'Merch-Tshirt-2.jpg', 'Merch-Tshirt-3.jpg', 'Merch-Tshirt-4.jpg'],
-    images: ['Merch-Tshirt-Back.jpg', 'Merch-Tshirt-Front.jpg'],
+    images: ['Merch-Tshirt-Back.jpg', 'Merch-Tshirt-Front.jpg'],   // close-ups also available: Merch-Tshirt-Detail.jpg, Merch-Tshirt-Logo.jpg
     storyTitle: 'Energy & Heritage',
     story: [
       'On the front, handwritten lettering wrapped in fiery florals captures the passion and energy of sport, a homage to the cultures we come from.',
