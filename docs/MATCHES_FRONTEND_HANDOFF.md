@@ -89,7 +89,6 @@ Paths below are relative to the repository root. The original feature remains wo
 |---|---|
 | `scripts/test-matches.mjs` | 17 pure-helper/SSR rendering check groups, including coverage of the development dataset |
 | `scripts/test-matches-browser.mjs` | Seven normal local headless Chrome groups, plus four actual mock-mode groups with `--mock`. Normal groups force the flag off and retain their isolated fixture injection |
-| `docs/matches-data.md` | Concise contract and integration summary; links to this handoff |
 | `docs/MATCHES_FRONTEND_HANDOFF.md` | This current integration guide |
 
 ### Existing files modified by the original feature
@@ -475,7 +474,7 @@ The Matches/Battle Page cleanup keeps the existing component exports, props, DOM
 - useScheduleLayout names its unchanged 16px clearance, 8px direction threshold, .5px settling tolerance, and three settling frames. A duplicate focus-overlap check in the direction branch was removed after confirming an earlier branch already handles it. The listener/observer lifecycle, animation-frame timing, and scroll geometry remain unchanged.
 - Page readiness state, memoized filtering, the stable scroll callback, and page-owned scroll-completion refs remain in place because they protect hydration and scrolling behavior.
 
-Verification includes 263 exact before/after rendered-markup comparisons, helper edge cases/provider abort handling, all configured route renders, native tab keyboard events, and the existing desktop/mobile scrolling and score-layout suites. See [CODE_REFACTORING_REPORT.md](CODE_REFACTORING_REPORT.md) for the baseline, change inventory, verification limits, and deferred recommendations. The baseline contains fixed mock scenarios, not a tournament-clock simulator; no simulation feature was removed or added.
+Verification includes 263 exact before/after rendered-markup comparisons, helper edge cases/provider abort handling, all configured route renders, native tab keyboard events, and the existing desktop/mobile scrolling and score-layout suites. The baseline contains fixed mock scenarios, not a tournament-clock simulator; no simulation feature was removed or added.
 
 ## I. Testing Checklist
 
