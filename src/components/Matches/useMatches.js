@@ -10,7 +10,7 @@ export default function useMatches(provider = getMatches) {
     const controller = new AbortController();
     setState({ matches: [], loading: true, error: null });
     // Invoke inside the chain so synchronous throws also reach the error handler.
-    // The provider must return normalized Match[] (see docs/matches-data.md).
+    // The provider must return normalized Match[] (see docs/MATCHES_FRONTEND_HANDOFF.md).
     Promise.resolve().then(() => provider({ signal: controller.signal })).then((matches) => {
       // Ignore stale completions even if a future provider ignores cancellation.
       if (!controller.signal.aborted) setState({ matches, loading: false, error: null });
