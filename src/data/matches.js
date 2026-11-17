@@ -50,7 +50,7 @@ export function scrollTarget(matches) {
 // The provider supplies valid offset timestamps; every sport displays Berlin time.
 export const matchTime = (scheduledAt) => new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit' }).format(new Date(scheduledAt));
 
-// Future API integration point. Return normalized Match[]; see docs/matches-data.md.
+// Future API integration point. Return normalized Match[]; see docs/MATCHES_FRONTEND_HANDOFF.md.
 // TODO: Connect the future Vercel API here; validate/normalize its response and
 // forward signal to fetch. See docs/MATCHES_FRONTEND_HANDOFF.md for the contract.
 // Mock fixtures are opt-in during development and excluded from production use.
