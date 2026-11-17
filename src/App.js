@@ -9,6 +9,8 @@ import HomePage from './pages/HomePage';
 // Sub-pages are only downloaded when someone opens them
 import SportPage from './pages/SportPage/SportPage';
 import MerchPage from './pages/MerchPage/MerchPage';
+import MatchesPage from './pages/MatchesPage/MatchesPage';
+import BattlePage from './pages/MatchesPage/BattlePage';
 
 // Background: blue gradient on .app (App.css) with the dither wave canvas on top.
 export default function App() {
@@ -20,6 +22,8 @@ export default function App() {
       <main>
         <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/matches" element={<MatchesPage />} />
+            <Route path="/matches/:matchId" element={<BattlePage />} />
             <Route path="/sports/:slug" element={<SportPage />} />
             <Route path="/merchandise/:slug?" element={<MerchPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />

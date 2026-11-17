@@ -1,0 +1,162 @@
+﻿.matches-page, .battle-page { padding-top: 64px; padding-bottom: 32px; }
+/* Feature selectors reuse App.css tokens and the existing container/background. */
+.matches-page__header { margin-bottom: 36px; }
+.matches-page__header h1, .battle-page__header h1 { font-size: clamp(36px, 5vw, 64px); line-height: 1.12; overflow-wrap: anywhere; }
+.matches-page__header p { color: var(--color-accent); font-size: clamp(16px, 2vw, 23px); margin-top: 12px; line-height: 1.5; }
+.matches-page__sport-label { color: var(--color-accent); text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: .16em; margin-bottom: 14px; }
+/* Wrap selectors to keep touch targets usable without widening the page. */
+.matches-sport-selector { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
+.matches-sport-selector button, .matches-view-tabs button, .matches-day-selector button, .matches-retry { font-family: var(--font-body); font-size: 14px; color: var(--color-text); cursor: pointer; min-height: 46px; }
+.matches-sport-selector button { display: inline-flex; flex: 1 1 150px; align-items: center; justify-content: center; gap: 12px; padding: 12px 20px; border-radius: 32px; border: 1px solid var(--color-text-muted); background: var(--color-panel-bg); transition: background .15s, border-color .15s; }
+.matches-sport-selector button[aria-pressed="true"], .matches-day-selector button[aria-pressed="true"] { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-text-on-accent); font-weight: 700; }
+.matches-view-tabs { display: inline-flex; border: 1px solid var(--color-chip-border); border-radius: 8px; overflow: hidden; margin-bottom: 20px; max-width: 100%; }
+.matches-view-tabs button { display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 12px 24px; background: var(--color-panel-bg); border: 1px solid transparent; }
+.matches-view-tabs button[aria-selected="true"] { background: var(--color-card-bg); border-color: var(--color-border); }
+.matches-schedule-header { display: flex; align-items: center; justify-content: space-between; gap: 24px; border: 1px solid var(--color-text-muted); border-radius: 14px; background: var(--color-panel-bg); padding: 12px 20px; margin-bottom: 32px; }
+.matches-schedule-header h2 { display: flex; align-items: center; gap: 16px; font-family: var(--font-body); font-size: 18px; text-transform: uppercase; letter-spacing: .08em; font-weight: 600; }
+.matches-day-selector { display: flex; padding: 3px; border: 1px solid var(--color-chip-border); border-radius: 32px; }
+.matches-day-selector button { display: flex; flex-direction: column; justify-content: center; gap: 3px; min-width: 130px; border: 0; border-radius: 28px; background: transparent; padding: 7px 16px; }
+.matches-day-selector button span { font-size: 10px; }
+.matches-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+/* Zero-minimum team columns allow long names to wrap inside the card grid. */
+.matches-match-card { display: grid; grid-template-columns: 110px minmax(0, 1fr) max-content minmax(0, 1fr) 115px 100px 16px; gap: 16px; align-items: center; border: 1px solid var(--color-text-muted); border-radius: 14px; background: var(--color-panel-bg); padding: 20px; transition: transform .15s, border-color .15s; }
+.matches-match-card:hover { transform: translateY(-2px); border-color: var(--color-accent); }
+.matches-match-card--live { border-color: var(--chinese-red); box-shadow: 0 0 0 1px var(--chinese-red); }
+.matches-match-card__id { display: flex; flex-direction: column; gap: 6px; border-right: 2px solid var(--color-accent); padding-right: 10px; }
+.matches-match-card__id strong { font-size: 18px; }
+.matches-match-card__id > span { font-size: 12px; font-style: italic; color: var(--color-text-muted); }
+.matches-team { display: flex; align-items: center; gap: 12px; min-width: 0; overflow-wrap: anywhere; line-height: 1.4; }
+.matches-team-logo { width: 40px; height: 40px; object-fit: contain; flex-shrink: 0; }
+.matches-team-logo--fallback { color: var(--color-text-muted); }
+.matches-score { display: inline-block; width: max-content; min-width: calc(7ch + 24px); justify-self: center; text-align: center; white-space: nowrap; padding: 6px 12px; border: 1px solid var(--color-text-muted); border-radius: 10px; font-size: 24px; font-weight: 700; font-variant-numeric: tabular-nums; background: var(--color-panel-bg); }
+.matches-match-card__meta { border-left: 1px solid var(--color-chip-border); padding-left: 14px; display: grid; gap: 8px; font-size: 12px; }
+.matches-match-card__meta > span, .battle-page__metadata > span { display: flex; align-items: center; gap: 8px; }
+.matches-status { display: inline-block; justify-self: center; font-size: 10px; font-weight: 700; letter-spacing: .03em; padding: 8px 10px; border-radius: 12px; color: var(--color-text); background: var(--color-chip-bg); border: 1px solid var(--color-chip-border); white-space: nowrap; }
+/* Text labels convey status too; color is an additional cue using existing tokens. */
+.matches-status--upcoming { background: var(--bg-royal); }
+.matches-status--live { background: color-mix(in srgb, var(--cobalt) 45%, var(--bg-deep)); border-color: var(--color-accent); }
+.matches-status--finished { color: var(--color-text-muted); }
+.matches-status--postponed { color: var(--color-accent); border-color: var(--color-accent); }
+.matches-status--cancelled { background: var(--burgundy); }
+.matches-state { min-height: 270px; border: 1px solid var(--color-chip-border); background: var(--color-panel-bg); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 24px; gap: 16px; }
+.matches-state > .icon { width: 32px; height: 32px; }
+.matches-state h2 { font-size: clamp(24px, 3vw, 32px); }
+.matches-state p { max-width: 460px; color: var(--color-text-muted); line-height: 1.7; font-size: 14px; }
+.matches-retry { display: inline-flex; align-items: center; padding: 10px 20px; border: 1px solid var(--color-accent); border-radius: 8px; background: var(--color-accent); color: var(--color-text-on-accent); }
+.matches-page__timezone { margin-top: 22px; font-size: 12px; color: var(--color-text-muted); text-align: right; }
+.battle-page__back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 14px; margin-bottom: 32px; }
+.battle-page__header { margin-bottom: 40px; }
+.battle-page__header p { text-transform: uppercase; margin-bottom: 16px; font-size: 14px; }
+.battle-page__header p span { color: var(--color-accent); font-weight: 700; }
+.battle-page__scoreboard { border: 1px solid var(--color-text-muted); border-radius: 24px; padding: 28px; background: var(--color-panel-bg); }
+/* Equal outer columns balance teams around the score's intrinsic width. */
+.battle-page__scores { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 24px; align-items: center; padding: 0 0 32px; }
+.battle-page__scores .matches-team { flex-direction: column; text-align: center; font-family: var(--font-heading); font-size: clamp(18px, 2.5vw, 30px); }
+.battle-page__scores .matches-team-logo { width: 72px; height: 72px; }
+.battle-page__score-center { display: flex; align-items: center; flex-direction: column; gap: 16px; }
+.battle-page__score-center .matches-score { font-family: var(--font-heading); font-size: clamp(32px, 5vw, 60px); padding: 8px 28px; }
+.battle-page__metadata { display: flex; justify-content: space-evenly; flex-wrap: wrap; gap: 20px; padding-top: 24px; border-top: 1px solid var(--color-chip-border); font-size: 14px; }
+.battle-page__metadata .icon { color: var(--color-accent); }
+.battle-page__lineups { margin-top: 44px; }
+.battle-page__lineups > h2 { font-size: clamp(30px, 4vw, 44px); margin-bottom: 28px; }
+.battle-page__teams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.battle-page__lineup { border: 1px solid var(--color-text-muted); border-radius: 16px; overflow: hidden; background: var(--color-panel-bg); }
+.battle-page__lineup header { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--color-card-bg); }
+.battle-page__lineup h3 { margin: 0; font-family: var(--font-heading); font-size: 24px; overflow-wrap: anywhere; }
+.battle-page__lineup ul { list-style: none; padding: 0 24px 20px; margin: 0; }
+.battle-page__lineup li { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--color-chip-border); overflow-wrap: anywhere; }
+.battle-page__lineup li > span:first-of-type { min-width: 0; }
+.battle-page__captain { font-weight: 700; background: var(--color-accent); color: var(--color-text-on-accent); border-radius: 6px; padding: 3px 7px; }
+.battle-page__unavailable { padding: 24px; color: var(--color-text-muted); font-size: 14px; }
+.matches-page button:focus-visible, .matches-page a:focus-visible, .matches-panel:focus-visible, .battle-page a:focus-visible, .battle-page button:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 4px; }
+/* Move metadata below the main comparison before the desktop columns get tight. */
+@media (max-width: 1060px) {
+  .matches-match-card { grid-template-columns: 85px minmax(0, 1fr) max-content minmax(0, 1fr) 90px; gap: 12px; }
+  .matches-match-card__meta { grid-column: 2 / 5; grid-row: 2; display: flex; border: 0; padding: 0; gap: 16px; }
+  .matches-match-card > .icon { display: none; }
+}
+/* Align feature spacing with the site's existing compact-container breakpoint. */
+@media (max-width: 860px) {
+  .matches-page, .battle-page { padding-top: 32px; }
+  .matches-schedule-header { flex-direction: column; align-items: stretch; gap: 16px; }
+  .matches-schedule-header h2 { font-size: 16px; }
+  .matches-day-selector button { flex: 1; min-width: 0; }
+}
+/* Phone cards: ID/status, then team/score/team, then venue/time. */
+@media (max-width: 600px) {
+  .matches-sport-selector { gap: 10px; }
+  .matches-sport-selector button { flex-basis: 130px; padding: 10px 14px; }
+  .matches-view-tabs { display: flex; }
+  .matches-view-tabs button { flex: 1; font-size: 12px; padding: 12px; gap: 8px; }
+  .matches-match-card { grid-template-columns: minmax(0, 1fr) max-content minmax(0, 1fr); padding: 16px; gap: 8px; }
+  .matches-match-card__id { grid-column: 1 / 3; grid-row: 1; flex-direction: row; border: 0; align-items: center; }
+  .matches-match-card .matches-status { grid-column: 3; grid-row: 1; }
+  .matches-match-card > .matches-team { flex-direction: column; text-align: center; font-size: 13px; }
+  .matches-match-card > .matches-team, .matches-match-card > .matches-score { grid-row: 2; }
+  .matches-match-card__meta { grid-column: 1 / -1; grid-row: 3; justify-content: center; padding-top: 8px; }
+  .battle-page__scoreboard { padding: 20px 12px; }
+  /* Give large scores their own row rather than squeezing team names or digits. */
+  .battle-page__scores { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  .battle-page__score-center { grid-column: 1 / -1; grid-row: 2; }
+  .battle-page__scores .matches-team-logo { width: 48px; height: 48px; }
+  .battle-page__score-center .matches-score { padding: 8px; }
+  .battle-page__metadata { font-size: 12px; gap: 16px; }
+  .battle-page__teams { grid-template-columns: 1fr; }
+}
+/* JavaScript also selects instant scrolling when this preference is enabled. */
+@media (prefers-reduced-motion: reduce) {
+  .matches-match-card, .matches-sport-selector button { transition: none; }
+  .matches-match-card:hover { transform: none; }
+}
+
+/* One sticky surface keeps all schedule controls together below the measured nav.
+   Its stacking level stays below the existing navbar/menu (z-index: 50). */
+.matches-controls {
+  position: sticky;
+  top: var(--matches-navbar-offset, 0px);
+  z-index: 10;
+  padding: 16px;
+  margin-bottom: 32px;
+  border: 1px solid var(--color-chip-border);
+  border-radius: 14px;
+  background: var(--color-panel-bg);
+  transition: transform .18s ease, opacity .18s ease, visibility 0s linear;
+}
+.matches-controls .matches-page__sport-label { margin-bottom: 10px; }
+.matches-controls .matches-sport-selector { margin-bottom: 16px; }
+.matches-controls .matches-view-tabs { margin-bottom: 14px; }
+.matches-controls .matches-schedule-header { margin-bottom: 0; }
+/* The hook subtracts existing global scroll-padding from this measured clearance. */
+.matches-list__item, .matches-match-card { scroll-margin-top: var(--matches-scroll-margin, 0px); }
+
+@media (max-width: 860px) {
+  .matches-controls { padding: 10px; margin-bottom: 20px; }
+  /* A single horizontally scrollable row leaves more viewport height for matches. */
+  .matches-controls .matches-sport-selector { flex-wrap: nowrap; overflow-x: auto; padding: 4px; margin: -4px -4px 10px; }
+  .matches-controls .matches-sport-selector button { flex: 0 0 auto; padding: 8px 14px; }
+  .matches-controls .matches-view-tabs { display: flex; margin-bottom: 10px; }
+  .matches-controls .matches-view-tabs button { flex: 1; padding: 10px; }
+  .matches-controls .matches-schedule-header { flex-direction: row; align-items: center; gap: 10px; padding: 8px; }
+  .matches-controls .matches-schedule-header h2 { font-size: 12px; gap: 8px; letter-spacing: .03em; }
+  .matches-controls .matches-day-selector { flex: 1; max-width: 300px; }
+  .matches-controls .matches-day-selector button { padding: 6px 8px; }
+}
+@media (max-width: 600px) {
+  .matches-controls .matches-page__sport-label { font-size: 10px; margin-bottom: 8px; }
+  .matches-controls .matches-schedule-header h2 { font-size: 10px; gap: 6px; }
+  .matches-controls .matches-schedule-header h2 .icon { width: 16px; height: 16px; }
+  .matches-controls .matches-day-selector button { font-size: 12px; }
+  .matches-controls .matches-day-selector button span { font-size: 8px; }
+}
+
+/* Keep normal document flow while hiding the cohesive sticky controls on descent. */
+.matches-controls[data-hidden="true"] {
+  transform: translateY(calc(-100% - 16px));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 0s, 0s, .18s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .matches-controls { transition: none; }
+}

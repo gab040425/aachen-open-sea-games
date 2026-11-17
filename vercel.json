@@ -5,6 +5,10 @@
       "handle": "filesystem"
     },
     {
+      "src": "/matches/[^/]+/?",
+      "dest": "/matches-shell.html"
+    },
+    {
       "src": "/.*",
       "dest": "/index.html"
     }

@@ -6,6 +6,7 @@ import merch from '../src/data/merch.js';
 
 const origin = 'https://www.aachenopen.de';
 const routes = [
+  { path: '/matches', title: 'Matches & Results | Aachen Hackenberg Open: SEA Games', description: 'Follow every match, every score, every victory. Tournament schedule and results for 5–6 December 2026.' },
   { path: '/', title: 'Aachen Hackenberg Open: SEA Games 2026', description: 'Three nations. One arena. Join Aachen Hackenberg Open: SEA Games on 5–6 December 2026 for sport, culture and community.' },
   ...sports.map(({ slug, name, description }) => ({ path: `/sports/${slug}`, title: `${name} | Aachen Hackenberg Open: SEA Games`, description })),
   { path: '/merchandise', title: 'Official Merchandise | Aachen Hackenberg Open: SEA Games', description: 'Explore official Aachen Hackenberg Open: SEA Games merchandise.' },
@@ -16,6 +17,9 @@ const vite = await createServer({ server: { middlewareMode: true }, appType: 'cu
 try {
   const { render } = await vite.ssrLoadModule('/src/entry-server.js');
   const template = await readFile('dist/index.html', 'utf8');
+  // Dynamic match IDs are not known at build time. Serve an unhydrated shell
+  // instead of the prerendered homepage through the route-specific SPA fallback.
+  await writeFile('dist/matches-shell.html', template.replace(/<title>[^<]*<\/title>/, '<title>Match | Aachen Hackenberg Open: SEA Games</title>'));
   for (const route of routes) {
     const body = render(route.path);
     if (!body || !body.includes('<main')) throw new Error(`Missing rendered content for ${route.path}`);

@@ -6,12 +6,11 @@ import links from '../../data/links';
 import FormButton from '../FormButton/FormButton';
 import './Navbar.css';
 
-// `to` can point at a page ("/sports/chess") or a section of the home page ("/#faq").
-// `match` (optional) is the path that marks the link as active, if it differs from `to`.
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/#about' },
   { label: 'Sports', to: '/#sports' },
+  { label: 'Schedule', to: '/matches', match: '/matches' },
   { label: 'Merchandise', to: '/merchandise/t-shirt', match: '/merchandise' },
   { label: 'Vendors', to: '/#vendors' },
   { label: 'FAQ', to: '/#faq' },
